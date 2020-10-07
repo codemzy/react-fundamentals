@@ -23,8 +23,10 @@
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
 
-    // exercise
-    const elementProps = {className: 'container', children: 'Hello World'};
+    // extra credit 1
+    const helloElement = React.createElement('span', { children: 'Hello'});
+    const worldElement = React.createElement('span', { children: 'World'});
+    const elementProps = {className: 'container', children: [helloElement, ' ', worldElement]};
     const elementType = 'div';
     const reactElement = React.createElement(elementType, elementProps);
     // can also send children as params (instead of children key on props)
