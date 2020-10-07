@@ -95,11 +95,22 @@
         greeting: PropTypes.string.isRequired
     };
 
+    // const element = (
+    //   <div className="container">
+    //     <Message greeting="Hello" subject="World" />
+    //     <Message greeting="Goodbye" subject="World" />
+    //   </div>
+    // );
+
+    //////////////////////// extra credit 5 ////////////////////////
+    // could use an array instead but that would need keys, so React.Fragment is useful when dom structure is important but not
+    // a true list with unique keys and you can replace <React.Fragment> with <> and </> which you may see in some codebases
+    // and it does the same thing
     const element = (
-      <div className="container">
+      <React.Fragment>
         <Message greeting="Hello" subject="World" />
         <Message greeting="Goodbye" subject="World" />
-      </div>
+      </React.Fragment>
     );
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
