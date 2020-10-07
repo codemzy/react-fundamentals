@@ -27,10 +27,17 @@
     // // since we just need the jsx here not a react component as such
     // const element = <div className="container">Hello World</div>;
 
-    // extra credit 1
-    const className = 'container';
+    // // extra credit 1
+    // const className = 'container';
+    // const children = 'Hello World';
+    // const element = <div className={className}>{children}</div>;
+
+    // extra credit 2
     const children = 'Hello World';
-    const element = <div className={className}>{children}</div>;
+    const className = 'container';
+    const props = {children, className};
+    // below is same as <div className={props.className} children={props.children} /> 
+    const element = <div {...props} />; // how do I apply props to this div?
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
@@ -38,6 +45,6 @@
     // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>
