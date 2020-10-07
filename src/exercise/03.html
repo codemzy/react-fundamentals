@@ -18,14 +18,19 @@
     //   children: 'Hello World',
     // })
 
-    // my code (and then rendered <Element /> instead of element)
-    const Element = function(props) {
-        return <div className="container">Hello World</div>;
-    };
+    // // my code (and then rendered <Element /> instead of element)
+    // const Element = function(props) {
+    //     return <div className="container">Hello World</div>;
+    // };
 
-    // you can also do
-    // since we just need the jsx here not a react component as such
-    const element = <div className="container">Hello World</div>;
+    // // you can also do
+    // // since we just need the jsx here not a react component as such
+    // const element = <div className="container">Hello World</div>;
+
+    // extra credit 1
+    const className = 'container';
+    const children = 'Hello World';
+    const element = <div className={className}>{children}</div>;
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
