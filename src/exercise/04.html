@@ -19,20 +19,67 @@
     //   </div>
     // );
 
-    // // extra credit 1
+    //////////////////////// extra credit 1 ////////////////////////
     // const element = React.createElement(message, { children: 'Hello World'});
 
-    // extra credit 2
-    function Message(props) { // needs to start with uppercase to be a react component from JSX instead of using React.createElement
-        return <div className="message">{props.children}</div>;
+    //////////////////////// extra credit 2 ////////////////////////
+    // function Message(props) { // needs to start with uppercase to be a react component from JSX instead of using React.createElement
+    //     return <div className="message">{props.children}</div>;
+    // };
+
+    // const element = ( // could also do <Message children="Hello World" />
+    //   <div className="container">
+    //     <Message>Hello World</Message>
+    //     <Message>Goodbye World</Message>
+    //   </div>
+    // );
+
+    //////////////////////// extra credit 3 ////////////////////////
+    function Message({subject, greeting}) {
+        return (
+            <div className="message">
+                {greeting}, {subject}
+            </div>
+        );
+    };
+
+    // note: propTypes wont work in production so is used during development and won't cause issues in production
+
+    Message.propTypes = {
+        subject(props, propName, componentName) {
+            if (typeof props[propName] !== 'string') {
+                return new Error(`${componentName} needs the prop ${propName} to be a string!`);
+            }
+        },
+        greeting(props, propName, componentName) {
+            let type = typeof props[propName];
+            if (type !== 'string') {
+                return new Error(`${componentName} needs the prop ${propName} to be a string but was passed a ${type}!`);
+            }
+        },
+    };
+
+    // an alternative way to validate (refactored from above)
+    const PropTypes = {
+        string(props, propName, componentName) {
+            if (typeof props[propName] !== 'string') {
+                return new Error(`${componentName} needs the prop ${propName} to be a string!`);
+            }
+        },
+    }
+
+    Message.propTypes = {
+        subject: PropTypes.string,
+        greeting: PropTypes.string
     };
 
     const element = ( // could also do <Message children="Hello World" />
       <div className="container">
-        <Message>Hello World</Message>
-        <Message>Goodbye World</Message>
+        <Message greeting="Hello" subject="World" />
+        <Message greeting="Goodbye" subject="World" />
       </div>
     );
+
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
