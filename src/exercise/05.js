@@ -14,8 +14,8 @@ import '../box-styles.css'
 // matches what the text says it should be as well as `fontStyle: 'italic'`
 
 // extra credit 1
-function Box({className, style, ...props}) {
-    return <div className={`box ${className}`} style={{fontStyle: 'italic', ...style}}>{props.children}</div>;
+function Box({className = '', style, ...props}) {
+    return <div className={`box ${className}`} style={{fontStyle: 'italic', ...style}} {...props} />;
 };
 
 const smallBox = <div className="box box--small" style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}>small lightblue box</div>
